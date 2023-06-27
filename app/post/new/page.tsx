@@ -2,11 +2,16 @@
 import { Footer, Hero } from '@/components'
 import Header from '@/components/Header'
 import React, {useState ,useEffect}from 'react'
-import Editor from '@/components/Editor/Editor'
+// import Editor from '@/components/Editor/Editor'
 import { useSession, getSession } from "next-auth/react"
 import Loading from '@/components/Loading'
 import Error from '@/components/404Error'
 import { useRouter } from 'next/navigation'
+import dynamic from 'next/dynamic'
+
+// import ReactQuill from 'react-quill';
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import 'react-quill/dist/quill.snow.css';
 
 const page = (props:any) => {
   const router = useRouter();
@@ -99,7 +104,8 @@ console.log(status)
 
         </div>
         <div className="flex flex-col ">
-            <Editor setBody={setBody} body={body}/>
+            {/* <Editor setBody={setBody} body={body}/> */}
+            <ReactQuill theme="snow" value={value} onChange={setBody} />
         </div>
         <div className="mt-10">
           {loading ? (
