@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="w-[100%] flex flex-col">
             <Header />
             <div className="flex flex-col h-[500px] justify-center items-center ">
-                <div className="font-bold text-8xl mt-10 mb-10">Janaka's Daily Blog</div>
+                <div className="font-bold text-8xl mt-10 mb-10">Janaka's Daily Blog.</div>
                 <div className="font-bold text-1xl">Welcome to Every Developers Favourite Blog</div>
             </div>
         </div>

@@ -79,7 +79,7 @@ console.log(status)
       <div className="w-[90%] mx-auto">
       <Header />
 
-      <div className="my-10 max-w-[1440px] mx-auto">
+      <div className="my-10 max-w-[768px] mx-auto">
         <div className="flex flex-col gap-4 my-7 ">
             <div className="flex flex-col gap-3">
                 <label className='' htmlFor="">Title</label>

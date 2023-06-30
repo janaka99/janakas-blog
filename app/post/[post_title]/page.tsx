@@ -80,7 +80,7 @@ const [processing, setProcessing] = useState(false)
 
       <Header />
         </div>
-      <div className="my-10 max-w-[1440px] mx-auto">
+      <div className="my-10 max-w-[768px] mx-auto">
         <div className="flex gap-5 my-5 items-center">
           {session && status === "authenticated" && (
             <>
