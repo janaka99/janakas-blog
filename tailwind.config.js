@@ -23,6 +23,13 @@ module.exports = {
       lg: "1024px",
       // => @media (min-width: 1440px) { ... }
     },
+    keyframes: {
+      shimmer: {
+        "100%": {
+          transform: "translateX(100%)",
+        },
+      },
+    },
   },
   plugins: [],
 };
