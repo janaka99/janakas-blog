@@ -17,6 +17,7 @@ const Body = () => {
         console.log(newRes);
         setposts(newRes);
       } else {
+        getPosts();
       }
     } catch (error) {}
   };
