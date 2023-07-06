@@ -19,12 +19,12 @@ const Card = ({ post }: Props) => {
         />
       </div>
       <div className=" bg-red-50 my-1 h-[30%] md:h-[20%] flex flex-col justify-center ">
-        <a className="underline text-sm font-bold px-2  " href="#">
+        <div className="underline text-sm font-bold px-2  ">
           {post.title.slice(0, 40) + "..."}
-        </a>
-        <a className="font-bold text-xs mx-2 mt-2 flex items-center" href="#">
+        </div>
+        <div className="font-bold text-xs mx-2 mt-2 flex items-center">
           Read Post <CgArrowTopRight />{" "}
-        </a>
+        </div>
       </div>
     </a>
   );
