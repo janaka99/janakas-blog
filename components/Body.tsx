@@ -12,11 +12,12 @@ const Body = () => {
         method: "GET",
       });
       const newRes = await res.json();
-      console.log(newRes);
+
       if (res.ok) {
         console.log(newRes);
         setposts(newRes);
       } else {
+        console.log("error raised");
         getPosts();
       }
     } catch (error) {}
@@ -24,7 +25,7 @@ const Body = () => {
 
   useEffect(() => {
     getPosts();
-  }, [posts]);
+  }, []);
 
   return (
     <div className="_container my-10 ">
