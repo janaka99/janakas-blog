@@ -14,7 +14,14 @@ const Body = () => {
       const newRes = await res.json();
 
       if (res.ok) {
-        console.log(newRes);
+        if (
+          newRes.length <= 0 ||
+          !newRes.length ||
+          newRes === undefined ||
+          newRes === null
+        ) {
+          getPosts();
+        }
         setposts(newRes);
       } else {
         console.log("error raised");
