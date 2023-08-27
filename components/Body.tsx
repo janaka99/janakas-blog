@@ -5,6 +5,7 @@ import SkelatonCard from "./SkelatonCard";
 
 const Body = () => {
   const [posts, setposts] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   const getPosts = async () => {
     try {
@@ -24,15 +25,16 @@ const Body = () => {
         }
         setposts(newRes);
       } else {
-        console.log("error raised");
-        getPosts();
+        setRefresh(true);
       }
-    } catch (error) {}
+    } catch (error) {
+      setRefresh(true);
+    }
   };
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [refresh]);
 
   return (
     <div className="_container my-10 ">
