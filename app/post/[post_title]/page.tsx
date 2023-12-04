@@ -74,11 +74,8 @@ const page = (props: any) => {
   }
   //fetch data
   return (
-    <div className="flex flex-col justify-between min-h-screen pt-5 w-full ">
-      <div className="w-[90%]  mx-auto">
-        <div className="mx-auto">
-          <Header />
-        </div>
+    <div className=" _container flex flex-col justify-between min-h-screen pt-5 w-full ">
+      <div className="w-full  mx-auto">
         <div className="my-10 max-w-[1024px] mx-auto">
           <div className="flex gap-5 my-5 items-center">
             {session && status === "authenticated" && (
@@ -109,8 +106,8 @@ const page = (props: any) => {
             alt=""
             className="w-[100%] aspect-[8/5] object-cover bg-red-100 sm:aspect-[8/4] md:aspect-[8/3]"
           />
-          <h1 className="mt-3 text-4xl ">{post.title}</h1>
-          <div className="flex mt-2 text-xs  items-center gap-5">
+          <h1 className="mt-3 text-4xl font-normal ">{post.title}</h1>
+          <div className="flex mt-2 text-base  items-center gap-5">
             <p className="flex items-center font-bold">
               <BsFillPersonFill /> &nbsp; {post.author.name}{" "}
             </p>
@@ -121,7 +118,7 @@ const page = (props: any) => {
           </div>
           <div className=" text-justify my-10">
             <div
-              className="div"
+              className="div "
               dangerouslySetInnerHTML={{ __html: post.body }}
             />
           </div>

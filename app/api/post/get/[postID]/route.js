@@ -5,7 +5,10 @@ export async function GET(req, res) {
   try {
     connectToDB();
     const id = req.nextUrl.searchParams.get("id");
-    const post = await Post.findOne({ _id: id }).populate({ path: "author" });
+    const post = await Post.findOne({ _id: id }).populate({
+      path: "author",
+      select: "-password",
+    });
     console.log(post);
     if (post) {
       return new Response(JSON.stringify(post), {

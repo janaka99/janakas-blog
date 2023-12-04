@@ -5,15 +5,13 @@ export async function GET(req, res) {
   try {
     connectToDB();
     //find all available products
-    const rs = await Post.find()
+    const lastInsertedRecord = await Post.find()
       .select("title body createdAt src _id")
-      .populate({
-        path: "author",
-        select: "-password",
-      });
-
+      .populate({ path: "author", select: "-password" })
+      .sort({ createdAt: -1 }) // Sort by creation date in descending order
+      .limit(1);
     //return all the products
-    return new Response(JSON.stringify(rs), {
+    return new Response(JSON.stringify(lastInsertedRecord), {
       status: 200,
     });
   } catch (err) {

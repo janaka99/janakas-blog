@@ -22,6 +22,7 @@ module.exports = {
 
       lg: "1024px",
       // => @media (min-width: 1440px) { ... }
+      xl: "1280px",
     },
     keyframes: {
       shimmer: {

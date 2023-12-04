@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
+import { FaBookOpen } from "react-icons/fa";
 
 const Logo = () => {
   return (
-    <a href='/' className='flex h-18 p-1 cursor-pointer border border-4 border-black '>
-        <div className="bg-black p-2 text-white font-bold text-2xl">JANAKA'S</div>
-        <div className=" p-2 font-bold text-2xl">BLOG</div>
+    <a href="/" className="cursor-pointer flex items-center gap-2 ">
+      <FaBookOpen size={35} />
+      <span className="  text-black font-bold text-2xl">JANAKA'S</span>
+      <span className="text-black font-normal text-2xl">BLOG</span>
     </a>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;
