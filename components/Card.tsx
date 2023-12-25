@@ -9,7 +9,7 @@ const Card = ({ post }: Props) => {
   return (
     <a
       href={`/post/${post.title}?post_id=${post._id}`}
-      className="w-[100%] mx-auto aspect-[8/4] md:aspect-[8/5] lg:aspect-[8/6] rounded-2xl overflow-hidden cursor-pointer p-4 flex flex-col justify-between shadow-xl relative"
+      className="w-[100%] mx-auto  rounded-2xl overflow-hidden cursor-pointer p-4 flex flex-col justify-between shadow-xl relative"
     >
       <div className="  my-1 h-[30%] md:h-[20%] flex flex-col justify-start ">
         <div className="text-lg text-black font-normal px-2 leading-5 ">
@@ -21,15 +21,15 @@ const Card = ({ post }: Props) => {
           {post.author.name}
         </div>
       </div>
-      <div className="w-[100%] h-[70%] md:[h-80%] rounded-lg overflow-hidden">
+      <div className="w-[100%] h-[150px]  rounded-lg overflow-hidden">
         <img
           src={post.src}
           alt=""
           className="w-full flex-grow object-cover bg-red-100 transition-all duration-300  hover:scale-[1.025]"
         />
       </div>
-      <div className="w-[50px] absolute right-4 bottom-4 aspect-square rounded-full bg-gray-950 text-white flex justify-center items-center">
-        <FiArrowUpRight size={35} />
+      <div className="w-[35x] absolute right-5 bottom-5 aspect-square rounded-full bg-gray-950 text-white flex justify-center items-center">
+        <FiArrowUpRight size={25} />
       </div>
     </a>
   );

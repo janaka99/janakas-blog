@@ -72,6 +72,14 @@ body{
   to { transform: translateX(-50%); }
 }
 
+.skelaton-anima-div{
+  @apply  bg-gray-600/10 overflow-hidden
+}
+
+.skelaton-anima-inner-div{
+  @apply bg-gradient-to-r from-transparent via-gray-200 to-transparent -translate-x-full animate-shimmer
+}
+
 
 ._space{
   word-spacing: 40px;

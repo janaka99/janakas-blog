@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const Loading = (props: Props) => {
   return (
-    <div className='w-screen h-screen flex justify-center items-center'>
-        <img  src="/rolling.svg" alt="" />
+    <div className="w-full h-screen flex justify-center items-center">
+      <img src="/rolling.svg" alt="" />
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

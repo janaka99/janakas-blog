@@ -178,7 +178,6 @@ const page = (props: any) => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -1,14 +1,17 @@
 import Post from "@/models/post";
 import { connectToDB } from "@/utils/dbconnect";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req, res) {
+export async function GET(req: NextRequest, res: NextResponse) {
   try {
     connectToDB();
     const id = req.nextUrl.searchParams.get("id");
-    const post = await Post.findOne({ _id: id }).populate({
-      path: "author",
-      select: "-password",
-    });
+    const post = await Post.findOne({ _id: id })
+      .populate({
+        path: "author",
+        select: "-password",
+      })
+      .select("--updatedAt");
     console.log(post);
     if (post) {
       return new Response(JSON.stringify(post), {
