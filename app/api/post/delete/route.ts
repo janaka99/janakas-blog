@@ -1,7 +1,8 @@
 import Post from "@/models/post";
 import { IsLoggedIn } from "@/middlewares";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req, next) {
+export async function POST(req: NextRequest, res: NextResponse) {
   //check the if the user is logged and has authority to add new product
   const loggedUser = await IsLoggedIn(req);
 
@@ -13,7 +14,7 @@ export async function POST(req, next) {
       await Post.findByIdAndDelete({ _id: postId });
 
       return new Response(
-        { message: "Succesfully deleted your Post" },
+        JSON.stringify({ message: "Succesfully deleted your Post" }),
         { status: 200 }
       );
     } catch (err) {

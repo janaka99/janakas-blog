@@ -3,8 +3,9 @@ import { storage } from "@/utils/firebase";
 import { ref, uploadBytesResumable } from "firebase/storage";
 import { getDownloadURL, deleteObject } from "firebase/storage";
 import { IsLoggedIn } from "@/middlewares";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req, next) {
+export async function POST(req: NextRequest, res: NextResponse) {
   //check the if the user is logged and has authority to add new product
   const loggedUser = await IsLoggedIn(req);
 
@@ -148,7 +149,7 @@ export async function POST(req, next) {
   }
 }
 
-const validatePost = (post) => {
+const validatePost = (post: any) => {
   let error = false;
   if (post.title === "") {
     error = true;

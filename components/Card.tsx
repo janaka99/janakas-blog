@@ -2,7 +2,7 @@ import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
 type Props = {
-  post: any;
+  post: Post;
 };
 
 const Card = ({ post }: Props) => {
@@ -23,7 +23,7 @@ const Card = ({ post }: Props) => {
       </div>
       <div className="w-[100%] h-[150px]  rounded-lg overflow-hidden">
         <img
-          src={post.src}
+          src={`${post.src}`}
           alt=""
           className="w-full flex-grow object-cover bg-red-100 transition-all duration-300  hover:scale-[1.025]"
         />
