@@ -15,10 +15,10 @@ export async function POST(req: NextRequest, res: NextResponse) {
       const data = await req.formData();
 
       //extract product details
-      const [detailskey, detailsValue] = Array.from(data.entries())[0];
+      const [detailskey, detailsValue] = Array.from(data.entries())[0] as any;
 
       //extract product image file
-      const [fileskey, filesValue] = Array.from(data.entries())[1];
+      const [fileskey, filesValue] = Array.from(data.entries())[1] as any;
 
       //check the uploded image file is in valid format
       const isFile = typeof filesValue === "object";
