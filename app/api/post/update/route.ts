@@ -15,7 +15,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       const data = await req.formData();
 
       //extract product details
-      const [detailskey, detailsValue] = Array.from(data.entries())[0];
+      const [detailskey, detailsValue] = Array.from(data.entries())[0] as any;
 
       //get product details to readable format
       const postDetails = JSON.parse(detailsValue);
@@ -38,13 +38,13 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
       if (Array.from(data.entries())[1]) {
         //extract product image file
-        const [fileskey, filesValue] = Array.from(data.entries())[1];
+        const [fileskey, filesValue] = Array.from(data.entries())[1] as any;
 
         //fetch data from that saved Product to delete the image from firebase storage
         const savedPost = await Post.findById(postDetails.id);
 
         //create storage reference to current image details
-        toDeleteImageIdStorageRef = ref(storage, savedPost.imageId);
+        toDeleteImageIdStorageRef = ref(storage, savedPost.imageId) as any;
 
         //buffer the product image
         const buffer = Buffer.from(await filesValue.arrayBuffer());
@@ -54,7 +54,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
         var vcode = crypto.randomBytes(20).toString("hex");
 
         //set firebase storage reference to save the product image
-        toUploadStorageRef = ref(storage, `files/${vcode}.png`);
+        toUploadStorageRef = ref(storage, `files/${vcode}.png`) as any;
 
         //save product image to firebase storage
         const snapshot = await uploadBytesResumable(toUploadStorageRef, buffer);
