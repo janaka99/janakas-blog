@@ -1,7 +1,8 @@
-import { Footer, Provider } from "@/components";
+import { Provider } from "@/components";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Header from "@/components/Header";
+import Header from "@/components/Layouts/Header/Header";
+import Footer from "@/components/Layouts/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Provider session={session}>
-        <body className={inter.className}>
-          <div className="_container">
-            <Header />
-          </div>
+        <body className="bg-background-800">
+          <Header />
           {children}
           <Footer />
         </body>

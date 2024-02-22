@@ -1,35 +1,44 @@
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
+import Button from "./UI/Button/Button";
 
 type Props = {
   post: Post;
+  index: number;
 };
 
-const Card = ({ post }: Props) => {
+const Card = ({ post, index }: Props) => {
+  //
+  //   {post.createdAt.slice(0, 10)} {" - "}
+  //   {post.author.name}
+  //        <FiArrowUpRight size={25} />
   return (
     <a
       href={`/post/${post.title}?post_id=${post._id}`}
-      className="w-[100%] mx-auto  rounded-2xl overflow-hidden cursor-pointer p-4 flex flex-col justify-between shadow-xl relative"
+      className={`relative w-full flex flex-col
+        ${index == 2 || index == 5 ? "lg:col-span-4" : "lg:col-span-2"}
+      `}
     >
-      <div className="  my-1 h-[30%] md:h-[20%] flex flex-col justify-start ">
-        <div className="text-lg text-black font-normal px-2 leading-5 ">
-          {/* {post.title.slice(0, 40) + "..."} */}
-          {post.title}
-        </div>
-        <div className="font-normal text-black text-sm mx-2 mt-2 flex items-center">
-          {post.createdAt.slice(0, 10)} {" - "}
-          {post.author.name}
-        </div>
-      </div>
-      <div className="w-[100%] h-[150px]  rounded-lg overflow-hidden">
+      <div
+        className={`w-full  overflow-hidden
+      ${
+        index == 2 || index == 5
+          ? "aspect-[9/5] lg:aspect-[9/3]"
+          : "aspect-[9/5]"
+      }
+      `}
+      >
         <img
           src={`${post.src}`}
           alt=""
-          className="w-full flex-grow object-cover bg-red-100 transition-all duration-300  hover:scale-[1.025]"
+          className="w-full h-full object-cover"
         />
       </div>
-      <div className="w-[35x] absolute right-5 bottom-5 aspect-square rounded-full bg-gray-950 text-white flex justify-center items-center">
-        <FiArrowUpRight size={25} />
+      <Button link="/" classes="w-fit mx-auto mt-4">
+        Category
+      </Button>
+      <div className="line-clamp-2 line text-secondary-100 w-[90%] mx-auto text-center text-2xl md:text-3xl my-2 mb-4 ">
+        {post.title}
       </div>
     </a>
   );

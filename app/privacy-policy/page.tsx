@@ -1,9 +1,10 @@
+import Container from "@/components/Layouts/Container/Container";
 import React from "react";
 
 const page = () => {
   return (
-    <div className="_container">
-      <div className="flex w-full flex-col my-20 justify-start gap-2">
+    <Container>
+      <div className="flex w-full flex-col mt-32 mb-20 justify-start gap-2 text-secondary-100">
         <h1 className="text-4xl font-semibold text-center w-full">
           Privacy Policy
         </h1>
@@ -79,7 +80,7 @@ const page = () => {
           </p>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

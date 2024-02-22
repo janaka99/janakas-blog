@@ -1,9 +1,7 @@
 "use client";
-import { Footer, Hero } from "@/components";
-import Header from "@/components/Header";
+
 import React, { useState, useEffect } from "react";
 import { useSession, getSession } from "next-auth/react";
-import Loading from "@/components/Loading";
 import Error from "@/components/404Error";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -11,6 +9,7 @@ import dynamic from "next/dynamic";
 // import ReactQuill from 'react-quill';
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
+import Loading from "@/components/UI/Loading/Loading";
 
 const page = (props: any) => {
   const router = useRouter();
@@ -107,7 +106,7 @@ const page = (props: any) => {
   }
 
   return (
-    <div className="flex flex-col justify-between min-h-screen pt-5 ">
+    <div className="flex flex-col justify-between min-h-screen pt-10 bg-background-500 text-secondary-500">
       <div className="w-[90%] mx-auto">
         <div className="my-10 max-w-[768px] mx-auto">
           <div className="flex flex-col gap-4 my-7 ">
@@ -116,7 +115,7 @@ const page = (props: any) => {
                 Title
               </label>
               <input
-                className="text-3xl border outline-none p-2"
+                className="text-xl border outline-none p-2 text-background-500"
                 type="text"
                 defaultValue={post?.title}
                 onChange={(e) => {
@@ -124,14 +123,21 @@ const page = (props: any) => {
                 }}
               />
             </div>
-            <div className=" flex flex-col md:flex-row">
+            <div className=" flex flex-col md:flex-row justify-between">
               <div className="flex flex-col gap-10 ">
-                <div className="flex flex-col gap-3 ">
+                <div className="flex flex-col gap-3  ">
                   <label htmlFor="">Upload Cover Image</label>
+                  <label
+                    htmlFor="upload_image"
+                    className="px-4 py-2 cursor-pointer bg-background-500 border-2 border-secondary-100 transition-all duration-300 hover:bg-secondary-100 hover:text-background-500 flex justify-center "
+                  >
+                    Upload
+                  </label>
                   <input
                     type="file"
                     name=""
-                    id=""
+                    id="upload_image"
+                    className="hidden"
                     onChange={(e) => {
                       handleFileUpload(e.target.files);
                     }}

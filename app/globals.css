@@ -12,26 +12,33 @@
   h3 {
     @apply text-lg;
   }
+
+  .text-size-hero{
+    @apply text-[16vw] leading-[16vw] xl:text-[10vw] xl:leading-[10vw]
+  }
+  
 }
 
 @tailwind components;
 @tailwind utilities;
 
+:root{
+
+  --background-100: #0A0A0A;
+  --background-500: #0A0A0A;
+  --background-800: #0A0A0A;
+
+  --secondary-100 : #ffffff;
+  --secondary-500 : #c1c1c1;
+  --secondary-800 : #FAFAFA;
+}
+
+
 body{
   font-family: 'Roboto', sans-serif;
 }
 
-._container {
-  @apply max-w-[1440px] flex mx-auto items-center w-[90%];
-}
 
-._orange_bg{
-  @apply bg-[#ffa31a]
-}
-
-*{
-  /* color: #292929; */
-}
 
 ._btn_1{
     background-color: #ffa31a;

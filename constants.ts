@@ -4,3 +4,22 @@ export const HERO_TITLE_TWO = "Welcome to Every Developers Favourite Blog";
 
 export const HERO_DESCRIPTION =
   "Dive into my coding odyssey! 🚀 Join me, Janaka, as I navigate the exciting realm of programming. Uncover tech stories, insights, and the unique adventures that shape my life as a programmer. Let's code the narrative together!";
+
+export const CATEGORIES = [
+  {
+    text: "News",
+    link: "/",
+  },
+  {
+    text: "Client Success",
+    link: "/",
+  },
+  {
+    text: "Coding tutorials",
+    link: "/",
+  },
+  {
+    text: "diary",
+    link: "/",
+  },
+];
