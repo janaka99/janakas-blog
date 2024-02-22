@@ -16,7 +16,7 @@ import Loading from "@/components/UI/Loading/Loading";
 const page = (props: any) => {
   const router = useRouter();
 
-  // const { data: session, status } = useSession();
+  const { data: session, status } = useSession();
 
   const [value, setValue] = useState("");
 
@@ -64,12 +64,12 @@ const page = (props: any) => {
     setloading(false);
   };
 
-  // if (status === "loading") {
-  //   return <Loading />;
-  // }
-  // if (status === "unauthenticated") {
-  //   return <Error />;
-  // }
+  if (status === "loading") {
+    return <Loading />;
+  }
+  if (status === "unauthenticated") {
+    return <Error />;
+  }
 
   return (
     <div className="flex flex-col justify-between min-h-screen pt-5 bg-background-500 text-secondary-100">

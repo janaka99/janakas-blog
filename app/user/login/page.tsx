@@ -1,6 +1,5 @@
 "use client";
 import { Footer } from "@/components";
-import Header from "@/components/Header";
 import React, { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
