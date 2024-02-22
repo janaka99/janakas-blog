@@ -35,7 +35,7 @@ export default function Home() {
           </div>
         </section>
         <section className="">
-          <LatestPost />
+          {/* <LatestPost /> */}
           <HomepagePosts />
         </section>
       </Container>
