@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 
 const LatestPost = () => {
   const [latestPost, setLatestPost] = useState<Post | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getLatestArticle = async () => {
+    setIsLoading(true);
     try {
       const res = await fetch("/api/post/latest-article", {
         method: "GET",
@@ -13,9 +15,13 @@ const LatestPost = () => {
 
       if (res.ok) {
         setLatestPost(newRes[0] as Post);
-        console.log(newRes);
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
       }
-    } catch (error) {}
+    } catch (error) {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -25,7 +31,7 @@ const LatestPost = () => {
   return (
     <div className="w-full flex flex-col gap-16">
       <h1 className="font-normal underline">Latest Article</h1>
-      {latestPost ? (
+      {!isLoading && latestPost ? (
         <a
           href={`/post/${latestPost.title}?post_id=${latestPost._id}`}
           className="w-full flex flex-col sm:flex-row gap-10"
