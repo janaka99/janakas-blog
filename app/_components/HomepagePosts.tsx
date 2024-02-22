@@ -14,7 +14,7 @@ const HomepagePosts = () => {
         method: "GET",
       });
       const newRes = await res.json();
-
+      console.log(newRes);
       if (res.ok) {
         if (newRes.length <= 0) {
           getPosts();
@@ -22,8 +22,9 @@ const HomepagePosts = () => {
           setposts(newRes as Post[]);
           setIsLoading(false);
         }
+      } else {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
     }
