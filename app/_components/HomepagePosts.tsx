@@ -21,12 +21,8 @@ const HomepagePosts = () => {
           setposts(newRes as Post[]);
           setIsLoading(false);
         }
-      } else {
-        getPosts();
-        setIsLoading(false);
       }
     } catch (error) {
-      getPosts();
       setIsLoading(false);
     }
   };
