@@ -27,8 +27,12 @@ export async function GET(req: NextRequest, res: NextResponse) {
       status: 200,
     });
   } catch (err) {
-    return new Response(JSON.stringify({ message: "Something went wrong " }), {
-      status: 500,
-    });
+    console.log(err);
+    return new Response(
+      JSON.stringify({ message: "Something went wrong ", error: err }),
+      {
+        status: 500,
+      }
+    );
   }
 }

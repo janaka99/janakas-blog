@@ -21,8 +21,11 @@ const HomepagePosts = () => {
           setposts(newRes as Post[]);
           setIsLoading(false);
         }
+      } else {
+        getPosts();
       }
     } catch (error) {
+      console.log(error);
       setIsLoading(false);
     }
   };
